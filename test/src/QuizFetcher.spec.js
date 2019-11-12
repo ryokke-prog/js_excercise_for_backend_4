@@ -37,9 +37,9 @@ describe('QuizFetcherのクラス', () => {
     });
 
     it('【Promise版】fetchメソッドの戻り値の型チェック', () => {
-      QuizFetcher.fetch()
+      return QuizFetcher.fetch()
         .then(response => {
-          const result = response.result;
+          const results = response.results;
 
           assert.strictEqual(Array.isArray(results), true);
           assert.strictEqual(results.length, 10);
@@ -93,8 +93,8 @@ describe('QuizFetcherのクラス', () => {
               }
             }
           });
+          done();
         });
-      done();
     });
   });
 });
